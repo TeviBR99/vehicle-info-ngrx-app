@@ -1,14 +1,2 @@
 <h1>BRANDS</h1>
-
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Favorite food</mat-label>
-    <input matInput placeholder="Brand name" [ngModel]="searchBrand" (ngModelChange)="updateSearch($event)" name="food">
-  </mat-form-field>
-</form>
-
-<cdk-virtual-scroll-viewport itemSize="50" class="viewport">
-  <div *cdkVirtualFor="let brand of filteredBrands" class="brand-item" (click)="goToBrandInfo(brand)">
-    {{ brand.id }} - {{ brand.name }}
-  </div>
-</cdk-virtual-scroll-viewport>
+<app-brand-list></app-brand-list>

@@ -21,6 +21,14 @@ export class VehicleApiService {
     )
   }
 
+  getVehicleTypesForMake(make: string): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/GetVehicleTypesForMake/${make}?format=json`);
+  }
+
+  getModelsForMake(make: string): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/GetModelsForMake/${make}?format=json`);
+  }
+
   private setBrandList(results: any[]) {
     return results.map(item => ({
       id: item.Make_ID,
