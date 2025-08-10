@@ -7,6 +7,11 @@
 .brand-item {
   padding: 10px;
   border-bottom: 1px solid #eee;
+
+  &:hover{
+    cursor: pointer;
+    background-color: aliceblue;
+  }
 }
 
 .search-container {

@@ -27,4 +27,9 @@ export class AppComponent implements OnInit {
       this.brands = this.vehicleService.brands
     }
   }
+
+  public goToBrandInfo(brand: Brand): void {
+    console.log('Navigating to brand info for:', brand);
+    // this.vehicleService.goToBrandInfo(brand);
+  }
 }

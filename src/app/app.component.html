@@ -1,6 +1,6 @@
 <h1>BRANDS</h1>
 <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
-  <div *cdkVirtualFor="let brand of brands()" class="brand-item">
+  <div *cdkVirtualFor="let brand of brands()" class="brand-item" (click)="goToBrandInfo(brand)">
     {{ brand.id }} - {{ brand.name }}
   </div>
 </cdk-virtual-scroll-viewport>
