@@ -1,1 +1,6 @@
-<h1>BRANDS: {{brands()}}</h1>
+<h1>BRANDS</h1>
+<cdk-virtual-scroll-viewport itemSize="50" class="viewport">
+  <div *cdkVirtualFor="let brand of brands()" class="brand-item">
+    {{ brand.id }} - {{ brand.name }}
+  </div>
+</cdk-virtual-scroll-viewport>

@@ -17,7 +17,15 @@ export class VehicleApiService {
       format: docType
     }
     return this.httpClient.get<any>(`${this.apiUrl}/GetAllMakes`, { params }).pipe(
-      map(response => response?.Results ?? []),
+      map(response => this.setBrandList( response?.Results ?? [])),
     )
   }
+
+  private setBrandList(results: any[]) {
+    return results.map(item => ({
+      id: item.Make_ID,
+      name: item.Make_Name
+    })) as Brand[];
+  }
+
 }
