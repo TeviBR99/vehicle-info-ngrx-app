@@ -1,4 +1,4 @@
-import { AfterViewChecked, Component, computed, DoCheck, effect, OnInit, signal, Signal, WritableSignal } from '@angular/core';
+import {Component, effect, OnInit, signal, Signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { VehicleService } from './services/vehicle.service';
