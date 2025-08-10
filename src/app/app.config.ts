@@ -1,6 +1,7 @@
 import { Brand } from './models/index';
 import { ApplicationConfig, provideZoneChangeDetection, isDevMode } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { routes } from './app.routes';
 import { provideStore } from '@ngrx/store';
@@ -20,6 +21,8 @@ export const appConfig: ApplicationConfig = {
     provideStore({ [BrandReducer.vehicleFeatureKey]: BrandReducer.appReducer }),
     provideEffects([AppEffects]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideAnimations(),
   ],
 
 };
+
