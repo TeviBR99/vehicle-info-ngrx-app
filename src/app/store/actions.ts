@@ -19,3 +19,12 @@ export const loadBrandListError = createAction(
   LOAD_BRANDS_FAILURE,
   props<{error: unknown }>()
 );
+
+/*
+Add actions to load brand info with:
+
+
+• Types of vehicles
+• Models available
+
+*/
