@@ -1,18 +1,20 @@
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Favorite food</mat-label>
-    <input matInput placeholder="Brand name" [ngModel]="searchBrand" (ngModelChange)="updateSearch($event)" name="food">
-  </mat-form-field>
-</form>
+@if(showList){
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Brand name</mat-label>
+      <input matInput placeholder="Brand name" [ngModel]="searchBrand" (ngModelChange)="updateSearch($event)" name="searchBrand">
+    </mat-form-field>
+  </form>
 
 
-<cdk-virtual-scroll-viewport itemSize="50" class="viewport">
-  <div *cdkVirtualFor="let brand of filteredBrands" class="brand-item" (click)="goToBrandInfo(brand)">
-    <mat-card appearance="outlined">
-      <mat-card-header>
-        <mat-card-title>Brand ID: {{ brand.id }}</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>{{ brand.name }}</mat-card-content>
-    </mat-card>
-  </div>
-</cdk-virtual-scroll-viewport>
+  <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
+    <div *cdkVirtualFor="let brand of filteredBrands" class="brand-item" (click)="goToBrandInfo(brand)">
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-title>Brand ID: {{ brand.id }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>{{ brand.name }}</mat-card-content>
+      </mat-card>
+    </div>
+  </cdk-virtual-scroll-viewport>
+}
