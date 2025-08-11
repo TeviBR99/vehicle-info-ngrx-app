@@ -5,8 +5,14 @@
   </mat-form-field>
 </form>
 
+
 <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
   <div *cdkVirtualFor="let brand of filteredBrands" class="brand-item" (click)="goToBrandInfo(brand)">
-    {{ brand.id }} - {{ brand.name }}
+    <mat-card appearance="outlined">
+      <mat-card-header>
+        <mat-card-title>Brand ID: {{ brand.id }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>{{ brand.name }}</mat-card-content>
+    </mat-card>
   </div>
 </cdk-virtual-scroll-viewport>

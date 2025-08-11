@@ -3,13 +3,15 @@ import { Component, effect, Signal, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 import { Brand } from '../models';
 import { VehicleService } from '../services/vehicle.service';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-brand-list',
   standalone: true,
-  imports: [ScrollingModule, FormsModule, MatFormFieldModule, MatInputModule],
+  imports: [ScrollingModule, FormsModule, MatFormFieldModule, MatInputModule, RouterOutlet, MatCardModule],
   templateUrl: './brand-list.component.html',
   styleUrl: './brand-list.component.scss'
 })
@@ -19,7 +21,8 @@ export class BrandListComponent {
   public filteredBrands: Brand[] = [];
   public searchBrand = '';
 
-  constructor(private readonly vehicleService: VehicleService) {
+  constructor(private readonly vehicleService: VehicleService,
+              private readonly router: Router) {
     effect(() => {
       this.filteredBrands = this.brands()
     });
@@ -40,7 +43,7 @@ export class BrandListComponent {
 
   public goToBrandInfo(brand: Brand): void {
     console.log('Navigating to brand info for:', brand);
-    // this.router.navigate(['brand', brand.id]);
+    this.router.navigate(['brand', brand.id]);
     // this.vehicleService.goToBrandInfo(brand);
   }
 }
