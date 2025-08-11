@@ -18,4 +18,8 @@ export class VehicleService {
     return this.store.selectSignal(selectVehicles);
   }
 
+  public get brands$(){
+    return this.store.select(selectVehicles);
+  }
+
 }

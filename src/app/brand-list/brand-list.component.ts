@@ -33,7 +33,7 @@ export class BrandListComponent {
   }
 
   ngOnInit(): void {
-    this.store.select(selectVehicles).subscribe((brands: Brand[]) => {
+    this.vehicleService.brands$.subscribe((brands: Brand[]) => {
       if(brands?.length > 0){
         this.brands = signal(brands);
       }else{
@@ -52,7 +52,7 @@ export class BrandListComponent {
   public goToBrandInfo(brand: Brand): void {
     console.log('Navigating to brand info for:', brand);
     this.showList = false;
-    this.router.navigate(['brand', brand.id], { queryParams: { outlet: 'brand-info' } });
+    this.router.navigate(['brand', brand.id]);
     // this.vehicleService.goToBrandInfo(brand);
   }
 }
