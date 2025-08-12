@@ -23,4 +23,16 @@ export class AppEffects {
       )
     )
   );
+
+  loadBrandInfo$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(AppActions.loadBrandInfo),
+      mergeMap(({ id }) =>
+        this.vehicleService.getBrandInfo(id).pipe(
+          map((brandInfo) => AppActions.loadBrandInfoSuccess({ brandInfo })),
+          catchError(error => of(AppActions.loadBrandInfoError({ error })))
+        )
+      )
+    )
+  );
 }

@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
-import { Brand } from '../models';
 import { VehicleService } from '../services/vehicle.service';
 import { Router, RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { selectVehicles } from '../store/selectors';
+import { Brand } from '../models/brand';
 
 @Component({
   selector: 'app-brand-list',
@@ -25,7 +25,6 @@ export class BrandListComponent {
   public showList: boolean = true
 
   constructor(private readonly vehicleService: VehicleService,
-              private readonly store: Store,
               private readonly router: Router) {
     effect(() => {
       this.filteredBrands = this.brands()
@@ -50,9 +49,7 @@ export class BrandListComponent {
   }
 
   public goToBrandInfo(brand: Brand): void {
-    console.log('Navigating to brand info for:', brand);
     this.showList = false;
     this.router.navigate(['brand', brand.id]);
-    // this.vehicleService.goToBrandInfo(brand);
   }
 }

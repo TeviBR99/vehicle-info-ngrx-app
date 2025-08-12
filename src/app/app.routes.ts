@@ -5,6 +5,6 @@ import { BrandListComponent } from './brand-list/brand-list.component';
 
 export const routes: Routes = [
   { path: '', component: BrandListComponent},
-  { path: 'brand/:makeID', component:  BrandInfoComponent }, // Assuming you have a BrandInfoComponent
+  { path: 'brand/:makeID', component:  BrandInfoComponent },
   { path: '**', redirectTo: '' }
 ];

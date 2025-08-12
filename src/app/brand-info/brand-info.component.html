@@ -1,4 +1,16 @@
-<p>brand-info works!</p>
+
+@let vehicleType = brandInfo()?.vehicleType;
+@for(type of vehicleType; track $index) {
+  <div>{{type?.vehicleTypeId}}</div>
+  <div>{{type?.vehicleTypeName}}</div>
+}
+
+@let brandModelInfo = brandInfo()?.brandModelInfo;
+@for(model of brandModelInfo; track $index) {
+  <div>{{model?.modelId}}</div>
+  <div>{{model?.modelName}}</div>
+}
+
 <div class="example-button-row">
     <button mat-raised-button (click)="goBack()">Return to List</button>
 </div>

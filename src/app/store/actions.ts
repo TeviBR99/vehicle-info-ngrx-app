@@ -1,9 +1,13 @@
 import { createAction, props } from "@ngrx/store";
-import { Brand } from "../models";
+import { Brand, BrandInfo } from "../models/brand";
 
-export const LOAD_BRANDS = '[Items] Load Items';
-export const LOAD_BRANDS_SUCCESS = '[Items] Load Items Success';
-export const LOAD_BRANDS_FAILURE = '[Items] Load Items Failure';
+export const LOAD_BRANDS = '[Brands] Load Brands';
+export const LOAD_BRANDS_SUCCESS = '[Brands] Load Brands Success';
+export const LOAD_BRANDS_FAILURE = '[Brands] Load Brands Failure';
+
+export const LOAD_BRAND_INFO = '[Brands] Load Brand Info';
+export const LOAD_BRAND_INFO_SUCCESS = '[Brands] Load Brand Info Success';
+export const LOAD_BRAND_INFO_ERROR = '[Brands] Load Brand Info Failure';
 
 export const loadBrandList = createAction(
   LOAD_BRANDS,
@@ -20,11 +24,17 @@ export const loadBrandListError = createAction(
   props<{error: unknown }>()
 );
 
-/*
-Add actions to load brand info with:
+export const loadBrandInfo = createAction(
+  LOAD_BRAND_INFO,
+  props<{id: string }>()
+);
 
+export const loadBrandInfoSuccess = createAction(
+  LOAD_BRAND_INFO_SUCCESS,
+  props<{brandInfo: BrandInfo}>()
+);
 
-• Types of vehicles
-• Models available
-
-*/
+export const loadBrandInfoError = createAction(
+  LOAD_BRAND_INFO_ERROR,
+  props<{error: unknown}>()
+);

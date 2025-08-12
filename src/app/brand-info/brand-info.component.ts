@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, effect, OnInit, Signal, signal, WritableSignal } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
+import { VehicleService } from '../services/vehicle.service';
+import { ActivatedRoute } from '@angular/router';
+import { BrandInfo } from '../models/brand';
 @Component({
   selector: 'app-brand-info',
   standalone: true,
@@ -9,13 +12,21 @@ import {MatButtonModule} from '@angular/material/button';
 })
 export class BrandInfoComponent implements OnInit {
 
+  public brandInfo: Signal<BrandInfo> = signal({} as BrandInfo);
 
-  constructor() {
-
+  constructor(private readonly vehicleService: VehicleService,
+    private readonly route: ActivatedRoute
+  ) {
   }
 
   ngOnInit(): void {
-      console.log('BrandInfoComponent initialized');
+    this.route.params.subscribe(params => {
+      const brandId = params['makeID'];
+      if(brandId) {
+        this.vehicleService.getBrandInfo(brandId);
+        this.brandInfo = this.vehicleService.brandInfo;
+      }
+    })
   }
 
 
