@@ -13,21 +13,17 @@ export class VehicleApiService {
   constructor(private readonly httpClient: HttpClient) { }
 
   public getBrandsList(docType: string): Observable<Brand[]> {
-    const params = {
-      format: docType
-    }
-    return this.httpClient.get<any>(`${this.apiUrl}/GetAllMakes`, { params }).pipe(
-      map(response => this.setBrandList( response?.Results ?? [])),
+    return this.httpClient.get(`${this.apiUrl}/GetAllMakes`, this.getFormatParamQuery(docType)).pipe(
+      map((response: any) => this.setBrandList( response?.Results ?? [])),
     )
   }
 
   public getVehicleTypesForMake(id: string, format: string = 'json'): Observable<any> {
-
-    return this.httpClient.get(`${this.apiUrl}/GetVehicleTypesForMakeId/${id}?format=${format}`);
+    return this.httpClient.get(`${this.apiUrl}/GetVehicleTypesForMakeId/${id}`, this.getFormatParamQuery(format));
   }
 
   public getModelsForMake(id: string, format: string = 'json'): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/GetModelsForMakeId/${id}?format=${format}`);
+    return this.httpClient.get(`${this.apiUrl}/GetModelsForMakeId/${id}`, this.getFormatParamQuery(format));
   }
 
   private setBrandList(results: any[]) {
@@ -66,6 +62,14 @@ export class VehicleApiService {
       modelId: item.Model_ID,
       modelName: item.Model_Name
     })) as BrandModelInfo[];
+  }
+
+  private getFormatParamQuery(docType: string = 'json'): any{
+    return {
+      params: {
+        format: docType
+      }
+    }
   }
 
 }
