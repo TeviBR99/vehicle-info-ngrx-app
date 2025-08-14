@@ -1,14 +1,20 @@
 
-@let vehicleType = brandInfo()?.vehicleType;
-@for(type of vehicleType; track $index) {
-  <div>{{type?.vehicleTypeId}}</div>
-  <div>{{type?.vehicleTypeName}}</div>
-}
+@if(brandInfo()) {
+  @let vehicleType = brandInfo().vehicleType;
+  <h2>Brand Information</h2>
+  @for(type of vehicleType; track $index) {
+    <div>{{type?.vehicleTypeId}}</div>
+    <div>{{type?.vehicleTypeName}}</div>
+  }
 
-@let brandModelInfo = brandInfo()?.brandModelInfo;
-@for(model of brandModelInfo; track $index) {
-  <div>{{model?.modelId}}</div>
-  <div>{{model?.modelName}}</div>
+  @let brandModelInfo = brandInfo().brandModelInfo;
+  @for(model of brandModelInfo; track $index) {
+    <div>{{model?.modelId}}</div>
+    <div>{{model?.modelName}}</div>
+  }
+
+}@else {
+  <h2>No Brand Information Available</h2>
 }
 
 <div class="example-button-row">
