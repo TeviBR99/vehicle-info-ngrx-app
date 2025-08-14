@@ -1,0 +1,15 @@
+.brand-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .brand-info-card-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 60vh;
+    width: 25vw;
+    overflow-x: hidden;
+  }
+
+}

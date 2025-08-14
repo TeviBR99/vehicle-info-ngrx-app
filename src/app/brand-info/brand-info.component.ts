@@ -3,10 +3,12 @@ import {MatButtonModule} from '@angular/material/button';
 import { VehicleService } from '../services/vehicle.service';
 import { ActivatedRoute } from '@angular/router';
 import { BrandInfo } from '../models/brand';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatCardModule } from "@angular/material/card";
 @Component({
   selector: 'app-brand-info',
   standalone: true,
-  imports: [MatButtonModule],
+  imports: [MatButtonModule, MatTabsModule, MatCardModule],
   templateUrl: './brand-info.component.html',
   styleUrl: './brand-info.component.scss'
 })

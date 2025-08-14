@@ -1,22 +1,38 @@
-
-@if(brandInfo()) {
-  @let vehicleType = brandInfo().vehicleType;
-  <h2>Brand Information</h2>
-  @for(type of vehicleType; track $index) {
-    <div>{{type?.vehicleTypeId}}</div>
-    <div>{{type?.vehicleTypeName}}</div>
+<div class="brand-info-container">
+  @if(brandInfo()) {
+    @let vehicleType = brandInfo().vehicleType;
+    @let brandModelInfo = brandInfo().brandModelInfo;
+    <mat-tab-group>
+      <mat-tab label="Model Info">
+          <mat-card>
+            <mat-card-content class="brand-info-card-content">
+              @for(model of brandModelInfo; track $index) {
+                <div>
+                  {{model?.modelId}} - {{model?.modelName}}
+                </div>
+              }
+            </mat-card-content>
+          </mat-card>
+      </mat-tab>
+      <mat-tab label="Vehicle Type">
+        <mat-card>
+            <mat-card-content class="brand-info-card-content">
+              @for(type of vehicleType; track $index) {
+                <div>
+                  {{type?.vehicleTypeId}} - {{type?.vehicleTypeName}}
+                </div>
+              }
+            </mat-card-content>
+          </mat-card>
+      </mat-tab>
+    </mat-tab-group>
+  }@else {
+    <h2>No Brand Information Available</h2>
   }
-
-  @let brandModelInfo = brandInfo().brandModelInfo;
-  @for(model of brandModelInfo; track $index) {
-    <div>{{model?.modelId}}</div>
-    <div>{{model?.modelName}}</div>
-  }
-
-}@else {
-  <h2>No Brand Information Available</h2>
-}
-
-<div class="example-button-row">
-    <button mat-raised-button (click)="goBack()">Return to List</button>
+  <div class="example-button-row">
+      <button mat-raised-button (click)="goBack()">Return to List</button>
+  </div>
 </div>
+
+
+
