@@ -9,9 +9,9 @@
     <div *cdkVirtualFor="let brand of filteredBrands" class="brand-item" (click)="goToBrandInfo(brand)">
       <mat-card appearance="outlined">
         <mat-card-header>
-          <mat-card-title>Brand ID: {{ brand.id }}</mat-card-title>
+          <mat-card-title class="card-text">Brand ID: {{ brand.id }}</mat-card-title>
         </mat-card-header>
-        <mat-card-content>{{ brand.name }}</mat-card-content>
+        <mat-card-content class="card-text">{{ brand.name }}</mat-card-content>
       </mat-card>
     </div>
   </cdk-virtual-scroll-viewport>
