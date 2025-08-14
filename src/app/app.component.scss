@@ -1,1 +1,7 @@
+@use '../variables.scss' as v;
+@use "sass:map";
 
+.text{
+  font-family: Arial, sans-serif;
+  color: map.get(v.$colors, text);
+}

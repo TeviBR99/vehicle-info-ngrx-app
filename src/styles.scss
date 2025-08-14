@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@use './variables.scss' as v;
+@use "sass:map";
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: map.get(v.$colors, primary-background);
+  display: flex;
+  justify-content: center;
+}

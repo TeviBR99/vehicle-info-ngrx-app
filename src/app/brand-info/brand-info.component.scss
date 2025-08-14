@@ -1,0 +1,33 @@
+@use '../../variables.scss' as v;
+@use "sass:map";
+
+.brand-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .brand-info-card-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 60vh;
+    width: 25vw;
+    overflow-x: hidden;
+  }
+
+  .brand-info-footer{
+    display: flex;
+    justify-content: center;
+
+    button{
+      padding: 20px;
+      background: map.get(v.$colors, primary);
+      border-radius: 20px;
+
+      &:hover {
+        background: map.get(v.$colors, hover);
+      }
+    }
+  }
+
+}
