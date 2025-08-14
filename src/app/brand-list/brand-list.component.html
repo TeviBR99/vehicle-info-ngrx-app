@@ -1,13 +1,11 @@
 @if(showList){
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Brand name</mat-label>
-      <input matInput placeholder="Brand name" [ngModel]="searchBrand" (ngModelChange)="updateSearch($event)" name="searchBrand">
+  <form class="search-name-form">
+    <mat-form-field class="search-name-form-field">
+      <mat-label class="search-name-form-label">Brand name</mat-label>
+      <input class="search-name-form-input" matInput placeholder="Brand name" [ngModel]="searchBrand" (ngModelChange)="updateSearch($event)" name="searchBrand">
     </mat-form-field>
   </form>
-
-
-  <cdk-virtual-scroll-viewport itemSize="50" class="viewport">
+  <cdk-virtual-scroll-viewport itemSize="100" class="brand-list">
     <div *cdkVirtualFor="let brand of filteredBrands" class="brand-item" (click)="goToBrandInfo(brand)">
       <mat-card appearance="outlined">
         <mat-card-header>
