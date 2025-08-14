@@ -5,13 +5,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { VehicleService } from '../services/vehicle.service';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
 import { Brand } from '../models/brand';
 
 @Component({
   selector: 'app-brand-list',
   standalone: true,
-  imports: [ScrollingModule, FormsModule, MatFormFieldModule, MatInputModule, RouterOutlet, MatCardModule],
+  imports: [ScrollingModule, FormsModule, MatFormFieldModule, MatInputModule, MatCardModule],
   templateUrl: './brand-list.component.html',
   styleUrl: './brand-list.component.scss'
 })
