@@ -1,4 +1,4 @@
-import { Component, effect, OnInit, Signal, signal, WritableSignal } from '@angular/core';
+import { Component, OnInit, Signal, signal } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import { VehicleService } from '../services/vehicle.service';
 import { ActivatedRoute } from '@angular/router';
@@ -28,7 +28,6 @@ export class BrandInfoComponent implements OnInit {
       }
     })
   }
-
 
   public goBack(): void {
     window.history.back();

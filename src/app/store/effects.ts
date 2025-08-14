@@ -12,7 +12,7 @@ export class AppEffects {
   private actions$ = inject(Actions);
   private vehicleService = inject(VehicleApiService);
 
-  loadItems$ = createEffect(() =>
+  loadBrandList$ = createEffect(() =>
     this.actions$.pipe(
       ofType(AppActions.loadBrandList),
       mergeMap(({docType}) =>
