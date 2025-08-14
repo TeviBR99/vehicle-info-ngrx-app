@@ -1,13 +1,11 @@
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { Component, effect, EventEmitter, Output, Signal, signal } from '@angular/core';
+import { Component, effect, Signal, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { VehicleService } from '../services/vehicle.service';
 import { Router, RouterOutlet } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { selectVehicles } from '../store/selectors';
 import { Brand } from '../models/brand';
 
 @Component({

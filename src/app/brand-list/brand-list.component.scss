@@ -28,7 +28,6 @@
 
   .brand-item {
     padding: 10px;
-    border-bottom: 1px solid #eee;
 
     &:hover{
       cursor: pointer;
@@ -39,9 +38,14 @@
       border-width: 1px;
       border-radius: 6px;
       border-color: map.get(v.$colors, primary);
+      gap: 20px;
 
       .card-text {
         color: map.get(v.$colors, text);
+      }
+
+      .mat-mdc-card-content{
+        justify-content: center;
       }
     }
   }
