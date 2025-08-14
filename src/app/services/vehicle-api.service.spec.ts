@@ -8,7 +8,6 @@ import { of } from 'rxjs';
 describe('VehicleApiService', () => {
   let service: VehicleApiService;
   let httpClient: HttpClient;
-  let spyOnHttpClient: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
