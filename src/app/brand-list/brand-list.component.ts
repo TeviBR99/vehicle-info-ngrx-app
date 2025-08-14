@@ -44,7 +44,7 @@ export class BrandListComponent {
 
   public updateSearch(brandToSearch: string): void {
     if(brandToSearch?.length > 0){
-      this.filteredBrands = this.brands().filter(b => b.name.toLowerCase().includes(brandToSearch));
+      this.filteredBrands = this.brands().filter((brand: Brand) => brand.name.toLowerCase().includes(brandToSearch));
     }
   }
 
